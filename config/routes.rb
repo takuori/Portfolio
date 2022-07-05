@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  scope moduel: :public do
+  scope module: :public do
     root to: 'posts#index'
     resource :members, only: [:update] do
       member do
