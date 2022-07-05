@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   devise_for :members, skip: [:passwords], controllers: {
-    registrations: "public/registrations",
+
     sessions: 'public/sessions'
   }
 
   scope moduel: :public do
-    root 'posts#index'
+
     resource :members, only: [:update] do
       member do
         get :likes
       end
     end
-    get "members/mypage" => "members#show"
+
     get "members/unsubscribe" => "members#unsubscribe"
     patch "members/withdraw" => "members#withdraw"
     resources :posts do
