@@ -4,8 +4,6 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  scope moduel: :public do
-
     resource :members, only: [:update] do
       member do
         get :likes
