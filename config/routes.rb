@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :members, skip: [:passwords], controllers: {
-
+    registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-  scope moduel: :public do
+  scope module: :public do
     root to: 'posts#index'
     resource :members, only: [:update] do
       member do

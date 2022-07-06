@@ -11,7 +11,9 @@
   </head>
 
   <body>
-    <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
     <%= yield %>
+    <p id ="test">jqueryです</p>
+    <p class="hoge">色変えるよ</p>
+    <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
   </body>
 </html>
