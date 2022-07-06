@@ -11,7 +11,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @post_tags - @post.tags
+    @tag_posts = @post.tags
   end
 
   def edit

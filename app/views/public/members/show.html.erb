@@ -1,2 +1,33 @@
-<h1>Public::Members#show</h1>
-<p>Find me in app/views/public/members/show.html.erb</p>
+<div class="contaoner">
+  <div class="row">
+    <div class="col-6">
+      <h4>マイページ</h4>
+      <div class="profile-image">
+        <% if @member.profile_image.attached? %>
+        　<%= image_tag @member.get_profile_image, class: "rounded-circle", size:"100x100" %>
+        <% end %>
+      </div>
+      <table class="table">
+        <tr>
+          <th>名前</th>
+          <td><%= @member.name %></td>
+        </tr>
+        <tr>
+          <th>自己紹介</th>
+          <td><%= @member.introduction %></td>
+        </tr>
+      </table>
+      <%= link_to "編集する", edit_members_path %>
+      <%= link_to "投稿一覧に戻る", posts_path %>
+    </div>
+    <div class="col-6">
+      <% @posts.each do |post| %>
+        <%= link_to post_path(post.id) do %>
+          <%= image_tag post.get_post_image, width: "50%", height: "50%" %>
+        <% end %>
+        <%= post.location %>
+        <%= post.detail %>
+      <% end %>
+    </div>
+  </div>
+</div>

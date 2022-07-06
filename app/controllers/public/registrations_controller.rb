@@ -5,8 +5,13 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   private
 
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :introduction, :email])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduction, :email, :profile_image])
   end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]

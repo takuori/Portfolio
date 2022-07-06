@@ -1,4 +1,6 @@
 <h2>投稿一覧</h2>
+<%= flash[:notice] %>
+<%= flash[:alert] %>
 <div class="container">
   <div class="row">
     <% @tag_list.each do |list| %>
@@ -7,7 +9,7 @@
     <% end %>
     <div class="post">
       <% @posts.each do |post| %>
-        <%= image_tag post.get_post_image %> 
+        <%= image_tag post.get_post_image, width: '50%', height: '50%' %>
         <%= post.location %>
         <%= post.detail %>
         <%= post.tags.map(&:name).join(',') %>

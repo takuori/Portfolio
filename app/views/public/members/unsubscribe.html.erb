@@ -1,0 +1,14 @@
+<h2>退会手続き</h2>
+
+<p>退会されますと<br>
+
+投稿やいいね、コメントなどのサービスが<br>
+
+できなくなりますがよろしいですか？？<br>
+
+また、退会後データはすべて削除されます。<br>
+
+退会する場合は下の「退会する」を押してください</p>
+
+<%= link_to "退会する", members_withdraw_path, method: :patch, data: { confirm: "最後のチャンスです" } %>
+<%= link_to "退会しない", members_mypage_path(current_member) %>
