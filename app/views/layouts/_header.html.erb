@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <div class="navbar-brand" style="padding-bottom: 15px;">
+      <%= link_to root_path do %>
+        <%= image_tag ('/assets/logo.jpg'), width:"230px", height:"60px" %>
+      <% end %>
+    </div>
+    <div>
+      <ul class="navbar-nav ml-auto", style="font-family: Hannotate SC;">
+        <% if member_signed_in? %>
+          <li><%= link_to "マイページ", members_mypage_path, class: 'btn btn-outline-light' %></li>
+          <li><%= link_to "新規投稿", new_post_path, class: 'btn btn-outline-light' %></li>
+          <li><%= link_to "通知", notifications_path, class: 'btn btn-outline-light' %></li>
+          <li><%= link_to "いいね", likes_members_path, class: 'btn btn-outline-light' %></li>
+          <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'btn btn-outline-light' %></li>
+        <% elsif admin_signed_in? %>
+          <li><%= link_to "会員一覧", admin_members_path, class: 'btn btn-outline-light' %></li>
+          <li><%= link_to "投稿一覧", admin_posts_path, class: 'btn btn-outline-light' %></li>
+          <li><%= link_to "ログアウト", destory_admin_session_path, method: :delete, class: 'btn btn-outline-light' %></li>
+        <%# elsif user_signed_in? %>
+          <%#= link_to "ログアウト", destory_user_session_path, class: 'btn btn-outline-light' %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

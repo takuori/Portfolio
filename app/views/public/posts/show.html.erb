@@ -1,2 +1,12 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<h3>投稿詳細</h3>
+<%= image_tag @post.get_post_image, width: "50%", height: "50%" %>
+<%= @post.location %>
+<%= @post.detail %>
+<%= @post.created_at.strftime('%Y/%m/%d') %>
+
+<% @tag_posts.each do |tag| %>
+  <%= link_to tag.name, tag_posts_path(tag_id: tag.id) %>
+  <%= "(#{tag.posts.count})" %>
+<% end %>
+
+<%= link_to "編集する", edit_post_path(@post.id) %>
