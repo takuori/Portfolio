@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   has_many :tags, through: :tag_posts
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_members, through: :likes, source: :member
 
   has_one_attached :post_image
 
@@ -18,12 +19,12 @@ class Post < ApplicationRecord
       'no_image.jpg'
     end
   end
-
+  
   def tags_save(tag_list)
     #current_tags = self.tags.pluck(:name) unless self.tags.nil?
     if self.tags != nil
-      post_tags_records = TagPost.where(post_id: self.id)
-      post_tags_records.destroy_all
+      tag_posts_records = TagPost.where(post_id: self.id)
+      tag_posts_records.destroy_all
     end
 
     tag_list.each do |tag|

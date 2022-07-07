@@ -12,6 +12,8 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @tag_posts = @post.tags
+    @comment = Comment.new
+    @comments = @post.comments.page(params[:page]).per(8).reverse_order
   end
 
   def edit
@@ -36,12 +38,12 @@ class Public::PostsController < ApplicationController
     tag_list = params[:post][:name].split(',')
     if @post.update(post_params)
        @post.tags_save(tag_list)
-       redirect_to post_path(@post.id),notice: '投稿完了いたしました'
+       redirect_to post_path(@post.id),notice: '更新完了いたしました'
     else
        render :edit
     end
   end
-  
+
   def search
     @tag_list = Tag.all
     @tag = Tag.find(params[:tag_id])

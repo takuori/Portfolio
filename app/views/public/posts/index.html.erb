@@ -15,6 +15,10 @@
         <%= post.location %>
         <%= post.detail %>
         <%= post.tags.map(&:name).join(',') %>
+        <div id="like_btn_<%= post.id %>">
+          <%= render 'public/likes/like', post: post %>
+        </div>
+        <%= "#{post.comments.count} コメント" %>
       <% end %>
     </div>
   </div>

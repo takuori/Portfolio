@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     patch "members/withdraw" => "members#withdraw"
     resources :posts do
       resource :likes, only: [:create, :destroy]
-      resource :comments, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
     end
     resources :tags, except: [:index, :show, :edit, :new, :create, :update, :destroy] do
       get 'posts', to: 'posts#search'

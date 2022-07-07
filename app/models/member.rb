@@ -36,6 +36,7 @@ class Member < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
 
   #自分が作った通知
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
