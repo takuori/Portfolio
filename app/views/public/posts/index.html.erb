@@ -9,7 +9,9 @@
     <% end %>
     <div class="post">
       <% @posts.each do |post| %>
-        <%= image_tag post.get_post_image, width: '50%', height: '50%' %>
+        <%= link_to post_path(post.id) do %>
+          <%= image_tag post.get_post_image, width: '50%', height: '50%' %>
+        <% end %>
         <%= post.location %>
         <%= post.detail %>
         <%= post.tags.map(&:name).join(',') %>
