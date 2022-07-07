@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+.favorite1 {
+color: red;
+font-size:1em;
+}
+
+.favorite2 {
+color: #6c757d;
+font-size:1em;
+}
+
+.comments-index {
+  background-color: #fff;
+  border: 1px #000 solid;
+}
+
+.comment-delete {
+  margin-left: auto;
+}
