@@ -8,6 +8,8 @@
     <%= f.label :プロフィール画像 %>
     <% if @member.profile_image.attached? %>
       <%= f.file_field :profile_image, accept: "image/*" %>
+    <% else %>
+      <%= f.file_field :profile_image, accept: "image/*" %>
     <% end %>
   </div>
 

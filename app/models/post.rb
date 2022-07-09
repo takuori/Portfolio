@@ -19,7 +19,11 @@ class Post < ApplicationRecord
       'no_image.jpg'
     end
   end
-  
+
+  def liked_by?(member)
+    likes.where(member_id: member.id).exists?
+  end
+
   def tags_save(tag_list)
     #current_tags = self.tags.pluck(:name) unless self.tags.nil?
     if self.tags != nil
@@ -44,8 +48,6 @@ class Post < ApplicationRecord
     #end
   end
 
-  def liked_by?(member)
-    likes.where(member_id: member.id).exists?
-  end
+
 
 end
