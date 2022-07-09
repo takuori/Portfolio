@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-  
+
   def new
     @post = Post.new
     @post.tag_posts.build
@@ -8,6 +8,11 @@ class Public::PostsController < ApplicationController
   def index
     @tag_list = Tag.all
     @posts = Post.all
+  end
+
+  def sort
+    selection = params[:keyword]
+    @posts = Post.sort(selection)
   end
 
   def show
@@ -39,7 +44,8 @@ class Public::PostsController < ApplicationController
     tag_list = params[:post][:name].split(',')
     if @post.update(post_params)
        @post.tags_save(tag_list)
-       redirect_to post_path(@post.id),notice: '更新完了いたしました'
+       redirect_to post_path(@post.id)
+       flash[:notice] = '更新完了いたしました'
     else
        render :edit
     end

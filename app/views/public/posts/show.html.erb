@@ -1,4 +1,5 @@
 <h3>投稿詳細</h3>
+<%= flash[:notice] %>
 <%= image_tag @post.get_post_image, width: "50%", height: "50%" %>
 <%= @post.location %>
 <%= @post.detail %>

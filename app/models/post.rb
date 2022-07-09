@@ -20,12 +20,24 @@ class Post < ApplicationRecord
     end
   end
 
+  def self.sort(selection)
+    case selection
+    when 'new'
+      return all.order(created_at: :DESC)
+    when 'old'
+      return all.order(created_at: :ASC)
+    when 'likes'
+      return find(Like.group(:post_id).order(Arel.sql('count(post_id) desc')).pluck(:post_id))
+    when 'dislikes'
+      return find(Like.group(:post_id).order(Arel.sql('count(post_id) asc')).pluck(:post_id))
+    end
+  end
+
   def liked_by?(member)
     likes.where(member_id: member.id).exists?
   end
 
   def tags_save(tag_list)
-    #current_tags = self.tags.pluck(:name) unless self.tags.nil?
     if self.tags != nil
       tag_posts_records = TagPost.where(post_id: self.id)
       tag_posts_records.destroy_all
@@ -35,17 +47,7 @@ class Post < ApplicationRecord
       inspected_tags = Tag.where(name: tag).first_or_create
       self.tags << inspected_tags
     end
-    #old_tags = current_tags - sent_tags
-    #new_tags = sent_tags - current_tags
 
-    #old_tags.each do |old|
-      #self.tag_posts.delete Tag.find_by(name: old)
-    #end
-
-    #new_tags.each do |new|
-      #new_tag_posts = Tag.find_or_create_by(name: new)
-      #self.tag_posts << new_tag_posts
-    #end
   end
 
 

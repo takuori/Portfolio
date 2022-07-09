@@ -15,10 +15,11 @@ Rails.application.routes.draw do
       resource :likes, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
+    get "members/sort" => "posts#sort"
+    get "members/search" => "searches#search"
     resources :tags, except: [:index, :show, :edit, :new, :create, :update, :destroy] do
       get 'posts', to: 'posts#search'
     end
-    get "search" => "searches#search"
     resources :notifications, only: [:index] do
       collection do
         delete 'destroy_all'
