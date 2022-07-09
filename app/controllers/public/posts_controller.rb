@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  
   def new
     @post = Post.new
     @post.tag_posts.build
@@ -51,6 +52,12 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      redirect_to posts_path, notice: '削除しました'
+    else
+      render :edit
+    end
   end
 
   private

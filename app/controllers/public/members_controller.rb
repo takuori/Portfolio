@@ -9,7 +9,7 @@ class Public::MembersController < ApplicationController
   end
 
   def update
-    @member = Menber.find(params[:id])
+    @member = Member.find(params[:id])
     if @member.update
        flash[:notice] = "変更内容更新いたしました"
        redirect_to edit_members_path
@@ -17,6 +17,11 @@ class Public::MembersController < ApplicationController
        flash[:alert] = "変更内容の更新に失敗しました"
        render 'edit'
     end
+  end
+
+  def likes
+    likes = Like.where(member_id: current_member.id).pluck(:post_id)
+    @like_posts = Post.find(likes)
   end
 
   def withdraw

@@ -5,11 +5,9 @@ Rails.application.routes.draw do
   }
   scope module: :public do
     root to: 'posts#index'
-    resource :members, only: [:edit, :update] do
-      member do
-        get :likes
-      end
-    end
+    resource :members, only: [:edit, :update]
+
+    get 'members/likes' => 'members#likes'
     get "members/mypage" => "members#show"
     get "members/unsubscribe" => "members#unsubscribe"
     patch "members/withdraw" => "members#withdraw"
