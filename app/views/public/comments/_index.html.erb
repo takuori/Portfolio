@@ -1,3 +1,4 @@
+<p>コメント件数:<%= post.comments.count %></p>
 <% post.comments.each do |comment| %>
 <div class="comments-index">
   <%= comment.member.name %>

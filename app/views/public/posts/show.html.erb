@@ -8,12 +8,15 @@
   <%= link_to tag.name, tag_posts_path(tag_id: tag.id) %>
   <%= "(#{tag.posts.count})" %>
 <% end %>
+<%= flash[:notice] %>
+<%= flash[:alert] %>
 <div id="comment-area">
+  <%= render "public/comments/index", post: @post %>
+  <%= paginate @comments %>
+</div>
+
+<div class="comments">
   <%= render "public/comments/comment", post: @post, comment: @comment %>
 </div>
-<p>コメント件数:<%= @comments.count %></p>
-<div class="comments">
-  <%= render "public/comments/index", post: @post %>
-</div>
-<%= paginate @comments %>
+
 <%= link_to "編集する", edit_post_path(@post.id) %>

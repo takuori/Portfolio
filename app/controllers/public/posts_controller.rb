@@ -13,7 +13,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @tag_posts = @post.tags
     @comment = Comment.new
-    @comments = @post.comments.page(params[:page]).per(8).reverse_order
+    @comments = @post.comments.page(params[:page]).per(10)
   end
 
   def edit

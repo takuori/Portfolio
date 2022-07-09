@@ -1,2 +1,20 @@
-<h1>Admin::Posts#index</h1>
-<p>Find me in app/views/admin/posts/index.html.erb</p>
+<h2>投稿一覧</h2>
+<div class="container">
+  <div class="row">
+    <% @tag_list.each do |list| %>
+      <%= link_to list.name, tag_posts_path(tag_id: list.id) %>
+      <%= "(#{list.posts.count})" %>
+    <% end %>
+    <div class="post">
+      <% @posts.each do |post| %>
+        <%= link_to post_path(post.id) do %>
+          <%= image_tag post.get_post_image, width: '50%', height: '50%' %>
+        <% end %>
+        <%= post.location %>
+        <%= post.detail %>
+        <%= post.tags.map(&:name).join(',') %>
+        <%= "#{post.comments.count} コメント" %>
+      <% end %>
+    </div>
+  </div>
+</div>
