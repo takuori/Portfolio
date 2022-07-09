@@ -1,4 +1,5 @@
 <h3>投稿詳細</h3>
+<%= flash[:notice] %>
 <%= image_tag @post.get_post_image, width: "50%", height: "50%" %>
 <%= @post.location %>
 <%= @post.detail %>
@@ -8,8 +9,7 @@
   <%= link_to tag.name, tag_posts_path(tag_id: tag.id) %>
   <%= "(#{tag.posts.count})" %>
 <% end %>
-<%= flash[:notice] %>
-<%= flash[:alert] %>
+
 <div id="comment-area">
   <%= render "public/comments/index", post: @post %>
   <%= paginate @comments %>
@@ -18,5 +18,7 @@
 <div class="comments">
   <%= render "public/comments/comment", post: @post, comment: @comment %>
 </div>
-
-<%= link_to "編集する", edit_post_path(@post.id) %>
+<% if member_signed_in? && current_member.id == @post.member_id %>
+  <li><%= link_to "編集する", edit_post_path(@post.id) %></li>
+  <li><%= link_to "削除", post_path(@post), method: :delete, data: {confirm: "本当に消しますか？"}%></li>
+<% end %>
