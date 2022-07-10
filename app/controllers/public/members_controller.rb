@@ -1,4 +1,5 @@
 class Public::MembersController < ApplicationController
+  before_action :authenticate_member!
   def show
     @member = current_member
     @posts = Post.where(member_id: current_member.id).includes(:member).order("created_at DESC")

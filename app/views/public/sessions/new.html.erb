@@ -22,5 +22,8 @@
     <%= f.submit "ログイン" %>
   </div>
 <% end %>
+<div class="guest">
+  <%= link_to 'ゲストログイン（閲覧用）', members_guest_sign_in_path, method: :post, class: "btn btn-secondary" %>
+</div>
 
 <%= render "public/shared/links" %>

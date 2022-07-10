@@ -15,6 +15,13 @@ class Member < ApplicationRecord
   has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
   #自分宛の通知
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+  
+  def self.guest
+    find_or_create_by!(name: 'guestmember', email: 'guest@example.com') do |member|
+      member.password = SecureRandom.urlsafe_base64
+      member.name = "guestmember"
+    end
+  end
 
   def get_profile_image
     if profile_image.attached?

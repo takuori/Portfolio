@@ -13,12 +13,10 @@
           <li><%= link_to "通知", notifications_path, class: 'btn btn-outline-light' %></li>
           <li><%= link_to "いいね", members_likes_path, class: 'btn btn-outline-light' %></li>
           <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'btn btn-outline-light' %></li>
-        <% elsif admin_signed_in? %>
+        <% else admin_signed_in? %>
           <li><%= link_to "会員一覧", admin_members_path, class: 'btn btn-outline-light' %></li>
           <li><%= link_to "投稿一覧", admin_posts_path, class: 'btn btn-outline-light' %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-outline-light' %></li>
-        <%# elsif user_signed_in? %>
-          <%#= link_to "ログアウト", destory_user_session_path, class: 'btn btn-outline-light' %>
         <% end %>
       </ul>
     </div>

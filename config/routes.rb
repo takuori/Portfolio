@@ -27,6 +27,10 @@ Rails.application.routes.draw do
     end
   end
 
+  devise_scope :member do
+    get 'members/guest_sign_in', to: 'members/sessions#guest_sign_in'
+  end
+
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }

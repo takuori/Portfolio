@@ -2,8 +2,15 @@
 
 class Public::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :ensure_guest_member, only: [:edit]
 
   private
+
+  def ensure_guest_member
+    if resource.name == "guestmember"
+      redirect_to root_path, notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません'
+    end
+  end
 
   def update_resource(resource, params)
     resource.update_without_password(params)
