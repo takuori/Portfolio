@@ -1,0 +1,13 @@
+<h3>検索結果一覧</h3>
+<% @posts.each do |post| %>
+  <%= link_to post_path(post.id) do %>
+    <%= image_tag post.get_post_image, width: '50%', height: '50%' %>
+  <% end %>
+  <%= post.location %>
+  <%= post.detail %>
+  <%= post.tags.map(&:name).join(',') %>
+  <div id="like_btn_<%= post.id %>">
+    <%= render 'public/likes/like', post: post %>
+  </div>
+  <%= "#{post.comments.count} コメント" %>
+<% end %>

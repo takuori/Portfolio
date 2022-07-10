@@ -1,4 +1,12 @@
 <h3>新規投稿</h3>
+<% if @post.errors.any? %>
+  <%= @post.errors.count %>件のエラー
+  <ul>
+    <%= @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <div class="container">
   <div class="row">
