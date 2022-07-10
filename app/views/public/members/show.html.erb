@@ -17,7 +17,9 @@
           <td><%= @member.introduction %></td>
         </tr>
       </table>
-      <%= link_to "編集する", edit_members_path %>
+      <% if @member.name != "guestmember" %>
+        <%= link_to "編集する", edit_members_path %>
+      <% end %>
       <%= link_to "投稿一覧に戻る", posts_path %>
     </div>
     <div class="col-6">
