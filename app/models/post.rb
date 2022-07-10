@@ -10,15 +10,29 @@ class Post < ApplicationRecord
 
   has_one_attached :post_image
 
+  validates :location, presence: true
+  validates :detail, length: { minimum: 2 }
+
   def get_post_image
     if post_image.attached?
-      #file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      #image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
       post_image
-    else
-      'no_image.jpg'
     end
   end
+  
+  def self.looks(search, word)
+    if search == "perfect_matuch"
+      @post = Post.where("location LIKE?", "#{word}")
+    elsif search == "forward_match"
+      @post = Post.where("location LIKE?", "#{word}%")
+    elsif search == "backward_match"
+      @post = Post.where("location LIKE?", "%#{word}")
+    elsif search == "partial_match"
+      @post = Post.where("location LIKE?", "%#{word}%")
+    else
+      @post = Post.all
+    end
+  end
+      
 
   def self.sort(selection)
     case selection

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
     end
     get "members/sort" => "posts#sort"
-    get "members/search" => "searches#search"
+    get "search" => "searches#search"
     resources :tags, except: [:index, :show, :edit, :new, :create, :update, :destroy] do
       get 'posts', to: 'posts#search'
     end
