@@ -7,6 +7,8 @@ class Public::CommentsController < ApplicationController
     @comment.post_id = @post.id
     if @comment.save
       flash[:notice] = "コメントを投稿しました"
+      @post.create_notification_comment!(current_member, @comment.id)
+      respond_to :js
     end
 
   end

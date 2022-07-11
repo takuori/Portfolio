@@ -32,24 +32,46 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.member_id = current_member.id
     tag_list = params[:post][:name].split(",")
-    if @post.save
+    
+    if tag_list == []
+      tag = Tag.new()
+      tag.name = ""
+      tag.save
+      @member = current_member
+      flash[:alert] = "投稿に失敗しました"
+      render :new
+    elsif @post.save
       @post.tags_save(tag_list)
-      redirect_back(fallback_location: root_path)
+      flash[:notice] = "投稿されました"
+      redirect_to posts_path
     else
-      redirect_back(fallback_location: root_path)
+      @member = current_member
+      flash[:alert] = "投稿に失敗しました"
+      render :new
     end
   end
 
   def update
     @post = Post.find(params[:id])
     tag_list = params[:post][:name].split(',')
-    if @post.update(post_params)
-       @post.tags_save(tag_list)
-       redirect_to post_path(@post.id)
-       flash[:notice] = '更新完了いたしました'
+    
+    if tag_list == []
+      tag = Tag.new()
+      tag.name = ""
+      tag.save
+      @member = current_member
+      flash[:alert] = "投稿に失敗しました"
+      render :new
+    elsif @post.update(post_params)
+      @post.tags_save(tag_list)
+      flash[:notice] = "投稿されました"
+      redirect_to posts_path
     else
-       render :edit
+      @member = current_member
+      flash[:alert] = "投稿に失敗しました"
+      render :new
     end
+
   end
 
   def search

@@ -10,13 +10,19 @@
         <% if member_signed_in? %>
           <li><%= link_to "マイページ", members_mypage_path, class: 'btn btn-outline-light' %></li>
           <li><%= link_to "新規投稿", new_post_path, class: 'btn btn-outline-light' %></li>
+          <% if unchecked_notifications.any? %>
+            <i class="fa fa-circle" style="color: gold;"></i>
+          <% end %>
           <li><%= link_to "通知", notifications_path, class: 'btn btn-outline-light' %></li>
           <li><%= link_to "いいね", members_likes_path, class: 'btn btn-outline-light' %></li>
           <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'btn btn-outline-light' %></li>
-        <% else admin_signed_in? %>
+        <% elsif admin_signed_in? %>
           <li><%= link_to "会員一覧", admin_members_path, class: 'btn btn-outline-light' %></li>
           <li><%= link_to "投稿一覧", admin_posts_path, class: 'btn btn-outline-light' %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'btn btn-outline-light' %></li>
+        <% else %>
+          <li><%= link_to "新規登録", new_member_registration_path, class: 'btn btn-outline-light' %></li>
+          <li><%= link_to "ログイン", new_member_session_path, class: 'btn btn-outline-light' %></li>
         <% end %>
       </ul>
     </div>
