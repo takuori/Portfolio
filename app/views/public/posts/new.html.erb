@@ -1,4 +1,6 @@
 <h3>新規投稿</h3>
+<%= flash[:notice] %>
+<%= flash[:alert] %>
 <% if @post.errors.any? %>
   <%= @post.errors.count %>件のエラー
   <ul>
