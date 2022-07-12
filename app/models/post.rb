@@ -10,6 +10,8 @@ class Post < ApplicationRecord
 
   has_one_attached :post_image
 
+  enum status:{released: 0, nonreleased: 1}
+
   validates :location, presence: true
   validates :detail, length: { minimum: 2 }
 

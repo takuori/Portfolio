@@ -28,6 +28,8 @@
         <%= f.label :タグ %>
         <%= f.text_field :name, placeholder:",で区切ってください" %>
         <div class="action">
+          <%= f.label "公開範囲を選択" %>
+          <%= f.select :status, [["公開", "released"],["下書き","nonreleased"]],required: true, class: "form-control" %>
           <%= f.submit "投稿" %>
         </div>
       <% end %>

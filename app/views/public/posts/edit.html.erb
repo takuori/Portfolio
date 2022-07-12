@@ -26,6 +26,10 @@
         </div>
         <%= f.label :タグ %>
         <%= f.text_field :name %>
+        <div class="status">
+          <%= f.label :公開範囲 %>
+          <%= f.select :status, [["公開", "released"],["下書き","nonreleased"]],required: true, class: "form-control" %>
+        </div>
         <div class="action">
           <%= f.submit "更新" %>
         </div>

@@ -2,7 +2,7 @@ class Public::MembersController < ApplicationController
   before_action :authenticate_member!
   def show
     @member = current_member
-    @posts = Post.where(member_id: current_member.id).includes(:member).order("created_at DESC")
+    @posts = Post.where(member_id: current_member.id, status: 0).includes(:member).order("created_at DESC")
   end
 
   def edit
@@ -23,6 +23,11 @@ class Public::MembersController < ApplicationController
   def likes
     likes = Like.where(member_id: current_member.id).pluck(:post_id)
     @like_posts = Post.find(likes)
+  end
+
+  def confirm
+    @member = current_member
+    @posts = @member.posts.where(status: 1).order('created_at DESC')
   end
 
   def withdraw
