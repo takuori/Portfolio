@@ -21,6 +21,7 @@
         <%= link_to "編集する", edit_members_path %>
       <% end %>
       <%= link_to "投稿一覧に戻る", posts_path %>
+      <%= link_to "下書き一覧", members_confirm_path(@member) %>
     </div>
     <div class="col-6">
       <% @posts.each do |post| %>

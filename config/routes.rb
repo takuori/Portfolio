@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'posts#index'
     resource :members, only: [:edit, :update]
-
+    get 'members/confirm' => 'members#confirm'
     get 'members/likes' => 'members#likes'
     get "members/mypage" => "members#show"
     get "members/unsubscribe" => "members#unsubscribe"

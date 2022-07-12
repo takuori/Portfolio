@@ -8,7 +8,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @tag_list = Tag.all
-    @posts = Post.all
+    @posts = Post.where(status: :released)
   end
 
   def sort
@@ -32,7 +32,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.member_id = current_member.id
     tag_list = params[:post][:name].split(",")
-    
+
     if tag_list == []
       tag = Tag.new()
       tag.name = ""
@@ -54,7 +54,7 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     tag_list = params[:post][:name].split(',')
-    
+
     if tag_list == []
       tag = Tag.new()
       tag.name = ""
@@ -92,6 +92,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:location, :detail, :post_image, {tag_ids: []}).merge(member_id: current_member.id)
+    params.require(:post).permit(:location, :detail, :post_image, :status, {tag_ids: []}).merge(member_id: current_member.id)
   end
 end
