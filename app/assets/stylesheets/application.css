@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+ }
+
 .favorite1 {
 color: red;
 font-size:1em;
@@ -30,4 +36,43 @@ font-size:1em;
 
 .comment-delete {
   margin-left: auto;
+}
+
+.login {
+    font-family: inherit;
+    text-align: center;
+    color: white;
+}
+
+.box-inner {
+    width: 400px;
+    margin: 0px auto;
+    margin-top: 100px;
+    padding: 20px;
+    border: 2px;
+}
+
+.box-email, .box-password {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.box-login {
+    width: 300px;
+    padding: 4px;
+    font-size: 14px;
+}
+
+.d-grid {
+    margin-bottom: 20px;
+}
+
+p, span {
+  color: white;
+}
+
+#new {
+    background-image: url("e7.PNG");
+    background-size: cover;
+    margin-bottom: 0;
 }
