@@ -13,14 +13,21 @@
  *= require_tree .
  *= require_self
  */
+ header li {
+   margin-right: 5px;
+ }
+
  footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
  }
 
-.footer-lower p {
-  color: white;
+ .footer-upper {
+   color: black;
+   text-align: center;
+ }
+
+.footer-lower {
   text-align: center;
 }
 
@@ -88,4 +95,100 @@ p, span {
     background-size: cover;
     background-attachment: fixed;
     margin-top: 0;
+}
+
+.newpost {
+    font-family: inherit;
+    text-align: center;
+    color: black;
+}
+
+.box-image, .box-location, .box-detail, .box-tag, .box-status, .box-introduction, .box-name, .box-email {
+  margin-bottom: 20px;
+  color: black;
+}
+
+.profile-image {
+  margin-bottom: 15px;
+}
+
+.text-mypage {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.index-mypage {
+  text-align: center;
+  margin-top: 15px;
+  color: black;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.card-mypage {
+  width: 50%;
+  float: left;
+  padding-right: 10px;
+}
+
+.edit-profile-image {
+  margin: 20px 0;
+}
+
+.unsubscribe {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+}
+
+.quit {
+  text-align: center;
+  font-size: 50px;
+  margin: 50px 0;
+}
+
+.btn1 {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.card-index {
+  width: 50%;
+  float: left;
+  padding-right: 10px;
+}
+
+.taglist {
+  color: black;
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
+}
+
+.tagdetail {
+  color: black;
+  font-size: 15px;
+  text-align: center;
+}
+
+.index {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 40px;
+}
+
+.sort {
+  margin: 10px 0;
+  display: inline-block;
+}
+
+.keyword {
+  color: black;
+  text-align: center;
+  font-size: 30px;
+}
+
+#search {
+  width: 306px;
+  margin: 10px 0;
 }

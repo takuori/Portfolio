@@ -9,6 +9,7 @@ class Public::PostsController < ApplicationController
   def index
     @tag_list = Tag.all
     @posts = Post.where(status: :released)
+    @tag = @tag_list
   end
 
   def sort

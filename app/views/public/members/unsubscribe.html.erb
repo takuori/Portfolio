@@ -1,14 +1,23 @@
-<h2>退会手続き</h2>
 
-<p>退会されますと<br>
+<h2 class="quit">退会手続き</h2>
 
-投稿やいいね、コメントなどのサービスが<br>
+<div class="unsubscribe-text">
+  <p class="unsubscribe">
+    退会されますと<br>
 
-できなくなりますがよろしいですか？？<br>
+    投稿やいいね、コメントなどのサービスが<br>
 
-また、退会後データはすべて削除されます。<br>
+    できなくなりますがよろしいですか？？<br>
 
-退会する場合は下の「退会する」を押してください</p>
+    また、退会後データはすべて削除されます。<br>
 
-<%= link_to "退会する", members_withdraw_path, method: :patch, data: { confirm: "最後のチャンスです" } %>
-<%= link_to "退会しない", members_mypage_path(current_member) %>
+    退会する場合は下の「退会する」を押してください</p>
+</div>
+<div class="btn1">
+  <%= link_to "退会する", members_withdraw_path, method: :patch, data: { confirm: "最後のチャンスです" }, class: "btn btn-danger btn-block" %>
+  <%= link_to "退会しない", members_mypage_path(current_member), class: "btn btn-primary" %>
+</div>
+
+
+
+
