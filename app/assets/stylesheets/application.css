@@ -19,6 +19,11 @@
   width: 100%;
  }
 
+.footer-lower p {
+  color: white;
+  text-align: center;
+}
+
 .favorite1 {
 color: red;
 font-size:1em;
@@ -52,15 +57,9 @@ font-size:1em;
     border: 2px;
 }
 
-.box-email, .box-password {
+.box-email, .box-password, .box-password_confirmation, .box-name {
     margin-bottom: 20px;
     color: white;
-}
-
-.box-login {
-    width: 300px;
-    padding: 4px;
-    font-size: 14px;
 }
 
 .d-grid {
@@ -74,5 +73,19 @@ p, span {
 #new {
     background-image: url("e7.PNG");
     background-size: cover;
+    background-attachment: fixed;
     margin-bottom: 0;
+}
+
+.signup {
+    font-family: inherit;
+    text-align: center;
+    color: white;
+}
+
+#registration {
+    background-image: url("e7s.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 0;
 }
