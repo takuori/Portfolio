@@ -138,6 +138,16 @@ p, span {
   font-weight: 900;
 }
 
+.sort-link {
+  margin-bottom: 10px;
+}
+
+.sort {
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 .card-mypage {
   width: 50%;
   float: left;
