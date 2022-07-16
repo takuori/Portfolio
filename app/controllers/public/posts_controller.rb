@@ -22,6 +22,7 @@ class Public::PostsController < ApplicationController
     @tag_posts = @post.tags
     @comment = Comment.new
     @comments = @post.comments.page(params[:page]).per(10)
+    @member = current_member
   end
 
   def edit

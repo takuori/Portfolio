@@ -1,24 +1,49 @@
-<h3>投稿詳細</h3>
+<h2 class="show">投稿詳細</h3>
 <%= flash[:notice] %>
-<%= image_tag @post.get_post_image, width: "50%", height: "50%" %>
-<%= @post.location %>
-<%= @post.detail %>
-<%= @post.created_at.strftime('%Y/%m/%d') %>
-
-<% @tag_posts.each do |tag| %>
-  <%= link_to tag.name, tag_posts_path(tag_id: tag.id) %>
-  <%= "(#{tag.posts.count})" %>
-<% end %>
-
-<div id="comment-area">
-  <%= render "public/comments/index", post: @post %>
-  <%= paginate @comments %>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="card-show">
+        <%= image_tag @post.get_post_image, width: "100%", height: "100%" %>
+        <div class="card-date">
+          投稿日：<%= @post.created_at.strftime('%Y/%m/%d') %>
+          <div class="card-location">
+            撮影地：<%= @post.location %>
+          </div>
+        </div>
+        <div class="card-detail">
+          本文：<%= @post.detail %>
+        </div>
+        <div class="card-tag">
+          <% @tag_posts.each do |tag| %>
+            <%= link_to tag.name, tag_posts_path(tag_id: tag.id) %>
+            <%= "(#{tag.posts.count})" %>
+          <% end %>
+        </div>
+        <div>
+          <% if member_signed_in? && current_member.id == @post.member_id %>
+          <div class="card-edit d-grid">
+            <%= link_to "編集する", edit_post_path(@post.id), class: "btn btn-success" %>
+          </div>
+          <div class="card-delete d-grid">
+            <%= link_to "削除", post_path(@post), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-danger" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="comments">
+        <%= render "public/comments/comment", post: @post, comment: @comment %>
+      </div>
+      <div id="comment-area">
+        <%= render "public/comments/index", post: @post %>
+        <%= paginate @comments %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="comments">
-  <%= render "public/comments/comment", post: @post, comment: @comment %>
-</div>
-<% if member_signed_in? && current_member.id == @post.member_id %>
-  <li><%= link_to "編集する", edit_post_path(@post.id) %></li>
-  <li><%= link_to "削除", post_path(@post), method: :delete, data: {confirm: "本当に消しますか？"}%></li>
-<% end %>
+
+
+

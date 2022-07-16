@@ -43,11 +43,19 @@ font-size:1em;
 
 .comments-index {
   background-color: #fff;
-  border: 1px #000 solid;
+  border: none;
 }
 
 .comment-delete {
   margin-left: auto;
+}
+
+.comment-count {
+  color: black;
+}
+
+.comment-submit {
+  text-align: right;
 }
 
 .login {
@@ -106,6 +114,11 @@ p, span {
 .box-image, .box-location, .box-detail, .box-tag, .box-status, .box-introduction, .box-name, .box-email {
   margin-bottom: 20px;
   color: black;
+}
+
+.box-email-login {
+  color: white;
+  margin-bottom: 20px;
 }
 
 .profile-image {
@@ -191,4 +204,50 @@ p, span {
 #search {
   width: 306px;
   margin: 10px 0;
+}
+
+.show {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.card-show {
+  margin-left: 20px;
+}
+
+.card-date {
+  margin: 10px 0;
+  display: flex;
+}
+
+.card-location {
+  margin-left: 20px;
+}
+
+.card-detail {
+  margin: 10px 0;
+}
+
+.card-edit {
+  margin: 5px 0;
+}
+
+.card-delete {
+  margin-bottom: 5px;
+}
+
+.edit {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.form-image {
+  margin-left: 150px;
+  margin-bottom: 20px;
+}
+
+.form-field {
+  margin-left: 150px;
+  margin-right: 225px;
+  margin-bottom: 10px;
 }

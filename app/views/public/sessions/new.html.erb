@@ -3,7 +3,7 @@
   <div class="box-inner">
     <%= form_with model: @member, url: session_path(resource_name) do |f| %>
     <h1 class="login">ログイン</h1>
-    <div class="box-email">
+    <div class="box-email-login">
       <%= f.label :メールアドレス %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
     </div>
