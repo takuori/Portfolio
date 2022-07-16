@@ -14,6 +14,10 @@ class Post < ApplicationRecord
 
   validates :location, presence: true
   validates :detail, length: { minimum: 2 }
+  
+  scope :latest, -> {order(updated_at: :desc)}
+  scope :old, -> {order(updated_at: :asc)}
+  scope :like_count, -> { includes(:likes).sort {|a,b| b.likes.size <=> a.likes.size}}
 
   def get_post_image
     if post_image.attached?

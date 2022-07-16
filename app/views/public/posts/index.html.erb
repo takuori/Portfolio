@@ -3,10 +3,10 @@
 
   <%= flash[:notice] %>
   <div class="container">
-    <%= form_with model: @post, url: members_sort_path, method: :get, local: true do |f| %>
-      <%= f.select :keyword, [['投稿が新しい順', 'new'],['投稿が古い順', 'old'],['いいねが多い順', 'likes'],['いいねが少ない順', 'dislikes'],] %>
-      <%= f.submit "並び替える", class: "btn btn-secondary btn-sm" %><br>
-    <% end %>
+    <p class="sort">並び順変更</p>
+    <%= link_to '新着順', sort_new_path(new: 'true'), {class: 'sort-link btn btn-secondary btn-sm' "#{'active' if current_page?('/posts/index?new=true')}"} %>
+    <%= link_to '古い順', sort_old_path(old: 'true'), {class: 'sort-link btn btn-secondary btn-sm' "#{'active' if current_page?('/posts/index?old=true')}"} %>
+    <%= link_to '❤多い順', sort_like_path(like: 'true'), {class: 'sort-link btn btn-secondary btn-sm' "#{'active' if current_page?('/posts/index?like=true')}"} %>
     <div class="row">
       <div class="col-9">
         <% @posts.each do |post| %>

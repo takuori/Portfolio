@@ -15,7 +15,9 @@ Rails.application.routes.draw do
       resource :likes, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    get "members/sort" => "posts#sort"
+    get "sort_new" => "posts#index"
+    get "sort_old" => "posts#index"
+    get "sort_like" => "posts#index"
     get "search" => "searches#search"
     resources :tags, except: [:index, :show, :edit, :new, :create, :update, :destroy] do
       get 'posts', to: 'posts#search'
