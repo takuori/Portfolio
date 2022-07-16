@@ -1,4 +1,4 @@
-<h3>投稿編集画面</h3>
+<h3 class="edit">投稿編集画面</h3>
 <% if @post.errors.any? %>
   <%= @post.errors.count %>件のエラー
   <ul>
@@ -9,29 +9,30 @@
 <% end %>
 <div class="container">
   <div class="row">
-    <div class="col-6">
+    <div class="col-12">
       <%= form_with model: @post do |f| %>
-        <div class="form-field">
-          <% if @post.post_image.attached? %>
-            <%= f.file_field :post_image, accept: "image/*" %>
-          <% end %>
+        <div class="form-image">
+          <%= image_tag @post.get_post_image, width: "80%", height: "80%" %>
+          <%= f.file_field :post_image, accept: "image/*" %>
         </div>
         <div class="form-field">
           <%= f.label :撮影地 %>
-          <%= f.text_field :location %>
+          <%= f.text_field :location, class: "form-control" %>
         </div>
         <div class="form-field">
           <%= f.label :本文 %>
-          <%= f.text_area :detail %>
+          <%= f.text_area :detail, class: "form-control" %>
         </div>
-        <%= f.label :タグ %>
-        <%= f.text_field :name %>
-        <div class="status">
+        <div class="form-field">
+          <%= f.label :タグ %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-field">
           <%= f.label :公開範囲 %>
           <%= f.select :status, [["公開", "released"],["下書き","nonreleased"]],required: true, class: "form-control" %>
         </div>
-        <div class="action">
-          <%= f.submit "更新" %>
+        <div class="form-field d-grid">
+          <%= f.submit "更新", class: "btn btn-success" %>
         </div>
       <% end %>
     </div>
