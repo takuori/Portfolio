@@ -13,22 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
  header li {
    margin-right: 5px;
  }
 
- footer {
-  bottom: 0;
-  width: 100%;
- }
-
- .footer-upper {
-   color: black;
-   text-align: center;
- }
-
-.footer-lower {
-  text-align: center;
+.fixed-bottom {
+  position: fixed;
 }
 
 .favorite1 {
@@ -260,4 +251,38 @@ p, span {
   margin-left: 150px;
   margin-right: 225px;
   margin-bottom: 10px;
+}
+
+.like {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.notification {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.notifications {
+  text-align: center;
+}
+
+.members-index {
+  text-align: left;
+}
+
+.destroy_all {
+  color: black;
+  font-weight: bold;
+}
+
+.nonrelease {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.nothing {
+  font-size: 50px;
+  color: black;
+  margin-left: 455px;
 }
