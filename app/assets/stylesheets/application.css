@@ -286,3 +286,9 @@ p, span {
   color: black;
   margin-left: 455px;
 }
+
+#admin-new {
+  background-image: url("shimonada.jpg");
+  background-size: cover;
+  background-position: center;
+}

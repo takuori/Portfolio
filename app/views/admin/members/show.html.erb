@@ -1,0 +1,17 @@
+<div class="box">
+  <div class="box-inner">
+    <div class="box-member">
+      <%= image_tag @member.get_profile_image, width: "100%", height: "100%" %>
+      <%= @member.name %>
+      <%= @member.introduction %>
+      <%= @member.email %>
+      <%= form_with model: @member, url: admin_member_path(@member.id), method: :patch do |f| %>
+        <%= f.radio_button :is_deleted, false %>
+        <%= f.label :is_deleted, "有効", {value: false, style: "display: inline-block;"} %>
+        <%= f.radio_button :is_deleted, true %>
+        <%= f.label :is_deleted, "退会", {value: true, style: "display: inline-block;"} %>
+        <%= f.submit "変更" %>
+      <% end %>
+    </div>
+  </div>
+</div>
