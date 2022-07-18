@@ -1,4 +1,6 @@
 <body id="new">
+<%= flash[:notice] %>
+<%= render "public/shared/error_messages", resource: resource %>
 <div class="box2">
   <div class="box-inner">
     <%= form_with model: @member, url: session_path(resource_name) do |f| %>
@@ -25,5 +27,6 @@
     </div>
   </div>
 </div>
+<%= link_to '管理者', new_admin_session_path %>
 </body>
 

@@ -1,12 +1,16 @@
 <h3 class="edit">投稿編集画面</h3>
-<% if @post.errors.any? %>
-  <%= @post.errors.count %>件のエラー
-  <ul>
-    <%= @post.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="error">
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
+  <% if @post.errors.any? %>
+    <%= @post.errors.count %>件のエラー
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-12">

@@ -65,7 +65,7 @@ class Public::PostsController < ApplicationController
       tag.save
       @member = current_member
       flash[:alert] = "投稿に失敗しました"
-      render :new
+      render :edit
     elsif @post.update(post_params)
       @post.tags_save(tag_list)
       flash[:notice] = "投稿されました"
@@ -73,7 +73,7 @@ class Public::PostsController < ApplicationController
     else
       @member = current_member
       flash[:alert] = "投稿に失敗しました"
-      render :new
+      render :edit
     end
 
   end
