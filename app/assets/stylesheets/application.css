@@ -18,6 +18,10 @@
    margin-right: 5px;
  }
 
+ .footer {
+   margin-top: 50px;
+ }
+
 .fixed-bottom {
   position: fixed;
 }
@@ -30,6 +34,10 @@ font-size:1em;
 .favorite2 {
 color: #6c757d;
 font-size:1em;
+}
+
+.comment {
+  margin-left: 10px;
 }
 
 .comments-index {
@@ -52,7 +60,7 @@ font-size:1em;
 .login {
     font-family: inherit;
     text-align: center;
-    color: white;
+    color: black;
 }
 
 .box-inner {
@@ -65,7 +73,7 @@ font-size:1em;
 
 .box-email, .box-password, .box-password_confirmation, .box-name {
     margin-bottom: 20px;
-    color: white;
+
 }
 
 .d-grid {
@@ -73,11 +81,11 @@ font-size:1em;
 }
 
 p, span {
-  color: white;
+  color: black;
 }
 
 #new {
-    background-image: url("e7.PNG");
+    background-image: url();
     background-size: cover;
     background-attachment: fixed;
     margin-bottom: 0;
@@ -86,11 +94,11 @@ p, span {
 .signup {
     font-family: inherit;
     text-align: center;
-    color: white;
+    color: black;
 }
 
 #registration {
-    background-image: url("e7s.jpg");
+    background-image: url();
     background-size: cover;
     background-attachment: fixed;
     margin-top: 0;
@@ -108,7 +116,7 @@ p, span {
 }
 
 .box-email-login {
-  color: white;
+  color: black;
   margin-bottom: 20px;
 }
 
@@ -225,8 +233,12 @@ p, span {
   margin-left: 20px;
 }
 
+.card-location-show {
+  margin-top: 5px;
+}
+
 .card-detail {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .card-edit {
@@ -282,13 +294,26 @@ p, span {
 }
 
 .nothing {
-  font-size: 50px;
+  font-size: 40px;
   color: black;
   margin-left: 455px;
+  color: gray;
+  font-family: serif;
 }
 
 #admin-new {
   background-image: url("shimonada.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.box-head {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.likecomment {
+  display: flex;
 }

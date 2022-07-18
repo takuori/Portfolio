@@ -25,6 +25,8 @@ class Post < ApplicationRecord
     end
   end
 
+  
+
   def self.looks(search, word)
     if search == "perfect_matuch"
       @post = Post.where("location LIKE?", "#{word}")
