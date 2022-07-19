@@ -85,7 +85,7 @@ p, span {
 }
 
 #new {
-    background-image: url();
+    background-image: url("railway.jpg");
     background-size: cover;
     background-attachment: fixed;
     margin-bottom: 0;
@@ -98,7 +98,7 @@ p, span {
 }
 
 #registration {
-    background-image: url();
+    background-image: url("boxsheet.jpg");
     background-size: cover;
     background-attachment: fixed;
     margin-top: 0;
