@@ -3,5 +3,6 @@ class Public::SearchesController < ApplicationController
   
   def search
     @posts = Post.looks(params[:search], params[:word])
+    @tag_list = Tag.all
   end
 end
