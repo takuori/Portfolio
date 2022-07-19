@@ -249,6 +249,10 @@ p, span {
   margin-bottom: 5px;
 }
 
+.card-index {
+  margin-bottom: 30px;
+}
+
 .edit {
   text-align: center;
   margin: 15px 0;
@@ -316,4 +320,18 @@ p, span {
 
 .likecomment {
   display: flex;
+}
+
+.tagpost-index {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.card-location-tag {
+  margin-top: 5px;
+}
+
+.search-index{
+  text-align: center;
+  margin: 15px 0;
 }
