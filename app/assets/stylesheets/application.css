@@ -85,7 +85,7 @@ p, span {
 }
 
 #new {
-    background-image: url("railway.jpg");
+    background-image: image-url("railway.jpg");
     background-size: cover;
     background-attachment: fixed;
     margin-bottom: 0;
@@ -98,7 +98,7 @@ p, span {
 }
 
 #registration {
-    background-image: url("boxsheet.jpg");
+    background-image: image-url("boxsheet.jpg");
     background-size: cover;
     background-attachment: fixed;
     margin-top: 0;
@@ -306,7 +306,7 @@ p, span {
 }
 
 #admin-new {
-  background-image: url("shimonada.jpg");
+  background-image: image-url("shimonada.jpg");
   background-size: cover;
   background-position: center;
 }
