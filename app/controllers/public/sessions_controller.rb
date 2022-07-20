@@ -18,12 +18,6 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  def guest_sign_in
-    member = Member.guest
-    sign_in member
-    redirect_to member_path(member), notice: 'guestmemberでログインしました'
-  end
-
   protected
 
   def after_sign_out_path_for(resource_or_scope)
@@ -34,10 +28,10 @@ class Public::SessionsController < Devise::SessionsController
     @member = Member.find_by(email: params[:member][:email])
     if @member
       if @member.valid_password?(params[:member][:password]) && (@member.is_deleted == false)
-        flash[:notice] = "退会済みです。再度ご登録ください"
+        flash[:danger] = "退会済みです。再度ご登録ください"
         redirect_to new_member_registration_path
       else
-        flash[:notice] = "項目を入力してください"
+        flash[:warning] = "項目を入力してください"
       end
     end
   end

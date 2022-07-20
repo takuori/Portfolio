@@ -12,10 +12,10 @@ class Public::MembersController < ApplicationController
   def update
     @member = Member.find(params[:id])
     if @member.update
-       flash[:notice] = "変更内容更新いたしました"
+       flash[:success] = "変更内容更新いたしました"
        redirect_to edit_members_path
     else
-       flash[:alert] = "変更内容の更新に失敗しました"
+       flash[:danger] = "変更内容の更新に失敗しました"
        render 'edit'
     end
   end
@@ -34,7 +34,7 @@ class Public::MembersController < ApplicationController
     @member = Member.find(params[:id])
     @member.update(is_deleted: true)
     reset_session
-    flash[:notice] = "退会処理いたしました"
+    flash[:danger] = "退会処理いたしました"
     redirect_to new_member_registration_path
   end
 end

@@ -1,5 +1,4 @@
 <h2 class="index">投稿一覧</h2>
-<%= flash[:notice] %>
 <div class="container">
   <p class="sort">並び順変更</p>
   <%= link_to '新着順', sort_new_path(new: 'true'), {class: 'sort-link btn btn-secondary btn-sm' "#{'active' if current_page?('/posts/index?new=true')}"} %>

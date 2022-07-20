@@ -8,7 +8,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   def ensure_guest_member
     if resource.name == "guestmember"
-      redirect_to root_path, notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません'
+      redirect_to root_path, danger: 'ゲストユーザーはプロフィール編集画面へ遷移できません'
     end
   end
 

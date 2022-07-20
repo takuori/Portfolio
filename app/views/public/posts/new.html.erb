@@ -1,7 +1,5 @@
 <body id="postnew">
   <div class="error">
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
     <% if @post.errors.any? %>
       <%= @post.errors.count %>件のエラー
       <ul>

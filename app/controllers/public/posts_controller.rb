@@ -42,15 +42,15 @@ class Public::PostsController < ApplicationController
       tag.name = ""
       tag.save
       @member = current_member
-      flash[:alert] = "投稿に失敗しました"
+      flash[:danger] = "投稿に失敗しました"
       render :new
     elsif @post.save
       @post.tags_save(tag_list)
-      flash[:notice] = "投稿されました"
+      flash[:success] = "投稿されました"
       redirect_to posts_path
     else
       @member = current_member
-      flash[:alert] = "投稿に失敗しました"
+      flash[:danger] = "投稿に失敗しました"
       render :new
     end
   end
@@ -64,15 +64,15 @@ class Public::PostsController < ApplicationController
       tag.name = ""
       tag.save
       @member = current_member
-      flash[:alert] = "投稿に失敗しました"
+      flash[:danger] = "投稿に失敗しました"
       render :edit
     elsif @post.update(post_params)
       @post.tags_save(tag_list)
-      flash[:notice] = "投稿されました"
+      flash[:success] = "投稿されました"
       redirect_to posts_path
     else
       @member = current_member
-      flash[:alert] = "投稿に失敗しました"
+      flash[:danger] = "投稿に失敗しました"
       render :edit
     end
 
@@ -87,7 +87,7 @@ class Public::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
-      redirect_to posts_path, notice: '削除しました'
+      redirect_to posts_path, danger: '削除しました'
     else
       render :edit
     end
