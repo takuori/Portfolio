@@ -335,3 +335,27 @@ p, span {
   text-align: center;
   margin: 15px 0;
 }
+
+.flash-message {
+  text-align: center;
+}
+
+#error_explanation {
+  text-align: center;
+  width: 450px;
+  border: 2px solid #f5c6cb;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+.alert-notice {
+   background-color: #CBFFD3;
+   color: black;
+   text-align: center;
+ }

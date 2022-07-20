@@ -6,7 +6,7 @@ class Public::CommentsController < ApplicationController
     @comment = current_member.comments.new(comment_params)
     @comment.post_id = @post.id
     if @comment.save
-      flash[:notice] = "コメントを投稿しました"
+      flash[:success] = "コメントを投稿しました"
       @post.create_notification_comment!(current_member, @comment.id)
       respond_to :js
     end
@@ -16,7 +16,7 @@ class Public::CommentsController < ApplicationController
   def destroy
     @comment = Comment.find_by(id: params[:id], post_id: params[:post_id])
     if @comment.destroy
-     flash[:alert] = "コメントを削除しました"
+     flash[:danger] = "コメントを削除しました"
     end
   end
 
