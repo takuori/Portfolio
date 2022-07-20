@@ -7,7 +7,6 @@ class Member < ApplicationRecord
   has_one_attached :profile_image
 
   validates :name, presence: true
-  validates :introduction, length: { minimum: 5, maximum: 250 }
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
