@@ -1,23 +1,25 @@
 <h2 class="index">投稿一覧</h2>
 <div class="container">
   <p class="sort">並び順変更</p>
-  <%= link_to '新着順', sort_new_path(new: 'true'), {class: 'sort-link btn btn-secondary btn-sm' "#{'active' if current_page?('/posts/index?new=true')}"} %>
-  <%= link_to '古い順', sort_old_path(old: 'true'), {class: 'sort-link btn btn-secondary btn-sm' "#{'active' if current_page?('/posts/index?old=true')}"} %>
+  <%= link_to '新着順', admin_sort_new_path(new: 'true'), {class: 'sort-link btn btn-secondary btn-sm' "#{'active' if current_page?('/posts/index?new=true')}"} %>
+  <%= link_to '古い順', admin_sort_old_path(old: 'true'), {class: 'sort-link btn btn-secondary btn-sm' "#{'active' if current_page?('/posts/index?old=true')}"} %>
   <div class="row">
     <div class="col-9">
       <% @posts.each do |post| %>
         <div class="col">
           <div class="card-index">
-            <%= link_to post_path(post.id) do %>
+            <%= link_to admin_post_path(post.id) do %>
               <%= image_tag post.get_post_image, width: "100%", height: "50%"  %>
             <% end %>
             <%= post.location %><br>
             <%= post.detail %><br>
-            <%= link_to tag_posts_path(tag_id: post.id) do %>
-              <%= post.tags.map(&:name).join(',') %>
-            <% end %>
-            <div class="comment">
-              <%= "#{post.comments.count} コメント" %>
+            <div class="d-flex">
+              <%= link_to tag_posts_path(tag_id: post.id) do %>
+                <%= post.tags.map(&:name).join(',') %>
+              <% end %>
+              <div class="comment">
+                <%= "#{post.comments.count} コメント" %>
+              </div>
             </div>
           </div>
         </div>

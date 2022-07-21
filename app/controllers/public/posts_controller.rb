@@ -64,15 +64,15 @@ class Public::PostsController < ApplicationController
       tag.name = ""
       tag.save
       @member = current_member
-      flash[:danger] = "投稿に失敗しました"
+      flash[:danger] = "更新に失敗しました"
       render :edit
     elsif @post.update(post_params)
       @post.tags_save(tag_list)
-      flash[:success] = "投稿されました"
-      redirect_to posts_path
+      flash[:success] = "更新されました"
+      redirect_to post_path(@post.id)
     else
       @member = current_member
-      flash[:danger] = "投稿に失敗しました"
+      flash[:danger] = "更新に失敗しました"
       render :edit
     end
 

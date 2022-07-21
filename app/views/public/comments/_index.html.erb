@@ -9,7 +9,7 @@
       <%= comment.comment %>
       <% if comment.member == current_member %>
       <div class="comment-delete">
-        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true, data: {confirm: "本当に消しますか？"} %>
+        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, remote: true, data: {confirm: "本当に消しますか？"}, class: "btn btn-danger btn-sm" %>
       </div>
       <% end %>
     </div>
