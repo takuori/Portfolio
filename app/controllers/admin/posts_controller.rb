@@ -3,6 +3,14 @@ class Admin::PostsController < ApplicationController
   def index
     @tag_list = Tag.all
     @posts = Post.where(status: :released)
+    if params[:new]
+      @posts = Post.latest.page(params[:page]).per(20)
+    elsif params[:old]
+      @posts = Post.old.page(params[:page]).per(20)
+    elsif params[:like]
+      posts = Post.like_count
+      @posts = Kaminari.paginate_array(posts).page(params[:page]).per(20)
+    end
   end
 
   def show

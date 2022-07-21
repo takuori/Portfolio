@@ -8,10 +8,10 @@
           <%= image_tag post.get_post_image, width: '100%', height: '100%' %>
         <% end %>
         <div class="card-location-like">
-          撮影地：<%= post.location %>
+          <strong>撮影地</strong>：<%= post.location %>
         </div>
         <div class="card-detail">
-          本文：<%= post.detail %>
+          <strong>本文</strong>：<%= post.detail %>
         </div>
         <div class="card-tag">
           <%= link_to tag_posts_path(tag_id: tag.id) do %>

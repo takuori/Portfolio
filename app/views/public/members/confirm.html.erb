@@ -3,20 +3,22 @@
   <div class="row row-cols-1 row-cols-md-3 g-3">
     <% if @posts.exists? %>
       <% @posts.each do |post| %>
-        <div class="card-nonrelease">
-          <%= link_to post_path(post.id) do %>
-            <%= image_tag post.get_post_image, width: '100%', height: '100%' %>
-          <% end %>
-          <div class="card-location-nonrelease">
-            撮影地：<%= post.location %>
-          </div>
-          <div class="card-detail">
-            本文：<%= post.detail %>
-          </div>
-          <div class="card-tag">
-            <%= link_to tag_posts_path(tag_id: tag.id) do %>
-              <%= post.tags.map(&:name).join(',') %>
+        <div class="col">
+          <div class="card-nonrelease">
+            <%= link_to post_path(post.id) do %>
+              <%= image_tag post.get_post_image, width: '100%', height: '100%' %>
             <% end %>
+            <div class="card-location-nonrelease">
+              撮影地：<%= post.location %>
+            </div>
+            <div class="card-detail">
+              本文：<%= post.detail %>
+            </div>
+            <div class="card-tag">
+              <%= link_to tag_posts_path(tag_id: tag.id) do %>
+                <%= post.tags.map(&:name).join(',') %>
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>

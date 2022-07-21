@@ -41,6 +41,9 @@ Rails.application.routes.draw do
     resources :posts, only: [:show, :index] do
       resource :comments, only: [:destroy]
     end
+    get "sort_new" => "posts#index"
+    get "sort_old" => "posts#index"
+    get "sort_like" => "posts#index"
     resources :members, only: [:index, :show, :update]
     get "search" => "searches#search"
   end

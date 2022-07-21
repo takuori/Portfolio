@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ #body {
+   background-color: #EEEEEE;
+ }
+
  header li {
    margin-right: 5px;
  }
@@ -21,6 +25,11 @@
  .footer {
    margin-top: 50px;
  }
+
+ .footer-text {
+   text-align: center;
+   margin: 0 auto;
+}
 
 .fixed-bottom {
   position: fixed;
@@ -250,7 +259,7 @@ p, span {
 }
 
 .card-index {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
 .edit {
