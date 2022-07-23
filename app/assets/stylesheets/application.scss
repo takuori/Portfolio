@@ -22,10 +22,6 @@
    margin-right: 5px;
  }
 
- .footer {
-   margin-top: 50px;
- }
-
  .footer-text {
    text-align: center;
    margin: 0 auto;
@@ -75,9 +71,7 @@ font-size:1em;
 .box-inner {
     width: 400px;
     margin: 0px auto;
-    margin-top: 100px;
     padding: 20px;
-    border: 2px;
 }
 
 .box-email, .box-password, .box-password_confirmation, .box-name {
@@ -97,7 +91,9 @@ p, span {
     background-image: image-url("railway.jpg");
     background-size: cover;
     background-attachment: fixed;
-    margin-bottom: 0;
+    margin-top: 0;
+    width: 100%;
+    height: 830px;
 }
 
 .signup {
@@ -111,6 +107,7 @@ p, span {
     background-size: cover;
     background-attachment: fixed;
     margin-top: 0;
+    height: 830px;
 }
 
 .newpost {
@@ -327,6 +324,8 @@ p, span {
   background-image: image-url("shimonada.jpg");
   background-size: cover;
   background-position: center;
+  height: 830px;
+  padding: 200px;
 }
 
 .box-head {
