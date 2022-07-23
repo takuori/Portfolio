@@ -15,6 +15,7 @@
         </div>
         <div class="card-tag">
           <% @tag_posts.each do |tag| %>
+            <i class="fas fa-tag"></i>
             <%= link_to tag.name, tag_posts_path(tag_id: tag.id) %>
             <%= "(#{tag.posts.count})" %>
           <% end %>

@@ -1,21 +1,41 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
     <div class="navbar-brand" style="padding-bottom: 15px;">
-      <%#= link_to root_path do %>
-        <%#= image_tag ('/assets/logo.jpg'), width:"230px", height:"60px" %>
-      <%# end %>
+      <%= link_to root_path do %>
+        <%= image_tag ('/assets/logo.png'), width:'100%', height:"100%" %>
+      <% end %>
     </div>
     <div>
       <ul class="navbar-nav ml-auto", style="font-family: Hannotate SC;">
         <% if member_signed_in? %>
-          <li><%= link_to "マイページ", members_mypage_path, class: 'btn btn-outline-dark' %></li>
-          <li><%= link_to "新規投稿", new_post_path, class: 'btn btn-outline-dark' %></li>
-          <% if unchecked_notifications.any? %>
-            <i class="fa fa-circle" style="color: gold;"></i>
-          <% end %>
-          <li><%= link_to "通知", notifications_path, class: 'btn btn-outline-dark' %></li>
-          <li><%= link_to "いいね", members_likes_path, class: 'btn btn-outline-dark' %></li>
-          <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'btn btn-outline-dark' %></li>
+          <li>
+            <%= link_to members_mypage_path, class: 'btn btn-outline-dark' do %>
+              <i class="fas fa-house-user"></i>マイページ
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_post_path, class: 'btn btn-outline-dark' do %>
+              <i class="fas fa-plus"></i> 新規投稿
+            <% end %>
+            <% if unchecked_notifications.any? %>
+              <i class="fa fa-circle" style="color: gold;"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to notifications_path, class: 'btn btn-outline-dark' do %>
+              <i class="fas fa-bell"></i> 通知
+            <% end %>
+          </li>
+          <li>
+            <%= link_to members_likes_path, class: 'btn btn-outline-dark' do %>
+              <i class="fas fa-bookmark"></i> いいね
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_member_session_path, method: :delete, class: 'btn btn-outline-dark' do %>
+              <i class="fas fa-sign-out-alt"></i> ログアウト
+            <% end %>
+          </li>
         <% elsif admin_signed_in? %>
           <li><%= link_to "会員一覧", admin_members_path, class: 'btn btn-outline-dark' %></li>
           <li><%= link_to "投稿一覧", admin_posts_path, class: 'btn btn-outline-dark' %></li>

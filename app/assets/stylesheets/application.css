@@ -205,7 +205,7 @@ p, span {
 .index {
   text-align: center;
   margin: 15px 0;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .sort {
@@ -306,12 +306,21 @@ p, span {
   margin: 15px 0;
 }
 
-.nothing {
-  font-size: 40px;
+.nothing, .nonotification {
+  text-align: center;
+  font-size: 30px;
   color: black;
+  font-family: MS Mincho;
+  font-weight: bold;
+}
+
+.nolike {
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  font-family: MS Mincho;
+  font-weight: bold;
   margin-left: 455px;
-  color: gray;
-  font-family: serif;
 }
 
 #admin-new {
@@ -367,4 +376,22 @@ ul {
    background-color: #CBFFD3;
    color: black;
    text-align: center;
- }
+}
+
+.search-result {
+  margin-top: 100px;
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  font-family: MS Mincho;
+  font-weight: bold;
+}
+
+.top-back {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.top-back-notification {
+  margin: 20px;
+}
