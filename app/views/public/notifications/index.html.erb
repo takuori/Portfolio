@@ -11,8 +11,11 @@
           <%= render @notifications %>
         </div>
       <% else %>
-        <p>通知はありません</p>
+        <div class="nonotification">通知はありません</div>
       <% end %>
+      <div class="top-back-nonotification">
+        <%= link_to "トップ画面に戻る", posts_path, class: "btn btn-secondary" %>
+      </div>
     </div>
   </div>
 </div>

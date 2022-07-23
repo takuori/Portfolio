@@ -12,16 +12,22 @@
             <%= link_to post_path(post.id) do %>
               <%= image_tag post.get_post_image, width: "100%", height: "50%"  %>
             <% end %>
-            <%= post.location %><br>
-            <%= post.detail %><br>
+            <strong>撮影地</strong>：<%= post.location %><br>
+            <strong>投稿者コメント</strong>：<%= post.detail %><br>
+            <i class="fas fa-tag"></i>
             <%= link_to tag_posts_path(tag_id: post.id) do %>
               <%= post.tags.map(&:name).join(',') %>
             <% end %>
-            <div id="like_btn_<%= post.id %>">
-              <%= render 'public/likes/like', post: post %>
-            </div>
-            <div class="comment">
-              <%= "#{post.comments.count} コメント" %>
+            <div class="likecomment">
+              <div id="like_btn_<%= post.id %>">
+                <%= render 'public/likes/like', post: post %>
+              </div>
+              <div class="comment">
+                <i class="fas fa-comment-dots"></i>
+                <%= link_to post_path(post.id) do %>
+                  <%= "#{post.comments.count}" %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -47,6 +53,7 @@
       <p class="taglist">タグ一覧</p>
       <p class="tagdetail">~タグを含む投稿のみに絞れます~</p>
       <% @tag_list.each do |list| %>
+        <i class="fa fa-tag"></i>
         <%= link_to list.name, tag_posts_path(tag_id: list.id) %>
         <%= "(#{list.posts.count})" %>
       <% end %>
