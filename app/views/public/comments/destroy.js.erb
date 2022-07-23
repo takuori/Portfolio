@@ -1,1 +1,2 @@
 $("#comment-area").html("<%= j(render 'public/comments/index', post: @comment.post) %>")
+$('.flash-message').html("<%= j(render 'layouts/flash') %>");

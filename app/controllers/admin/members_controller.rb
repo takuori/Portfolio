@@ -9,8 +9,13 @@ class Admin::MembersController < ApplicationController
 
   def update
     @member = Member.find(params[:id])
-    @member.update(member_params)
-    redirect_to admin_member_path
+    if @member.update(member_params)
+      flash[:success] = "更新成功しました"
+      redirect_to admin_member_path
+    else
+      flash[:danger] = "更新失敗しました"
+      render :show
+    end
   end
 
   private
