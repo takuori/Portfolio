@@ -48,6 +48,14 @@ font-size:1em;
 .comments-index {
   background-color: #fff;
   border: none;
+  padding-bottom: 10px;
+}
+
+.comments-index-admin {
+  border: none;
+  padding-bottom: 10px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .comment-delete {
@@ -56,6 +64,13 @@ font-size:1em;
 
 .comment-count {
   color: black;
+}
+
+.comment-count-admin {
+  color: black;
+  text-align: center;
+  font-size: 23px;
+  font-weight: bold;
 }
 
 .comment-submit {
@@ -303,7 +318,7 @@ p, span {
   margin: 15px 0;
 }
 
-.nothing, .nonotification {
+.nonotification {
   text-align: center;
   font-size: 30px;
   color: black;
@@ -311,7 +326,7 @@ p, span {
   font-weight: bold;
 }
 
-.nolike {
+.nothing, .nolike {
   text-align: center;
   font-size: 30px;
   color: black;
@@ -372,9 +387,12 @@ ul {
 }
 
 .alert-notice {
-   background-color: #CBFFD3;
+   background-color: #EEEEEE;
    color: black;
    text-align: center;
+   margin-bottom: 0;
+   font-weight: bold;
+   font-size: 20px;
 }
 
 .search-result {

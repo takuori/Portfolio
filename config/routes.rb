@@ -39,8 +39,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root "posts#index"
     resources :posts, only: [:show, :index] do
-      resource :comments, only: [:destroy]
+      resources :comments, only: [:destroy]
     end
+    get "comments" => "comments#comments"
     get "sort_new" => "posts#index"
     get "sort_old" => "posts#index"
     get "sort_like" => "posts#index"
