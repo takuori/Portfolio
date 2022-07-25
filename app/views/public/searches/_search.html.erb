@@ -1,3 +1,4 @@
+<p class="keyword">キーワード検索</p>
 <% if member_signed_in? %>
   <div class="search_form">
     <%= form_with url: search_path, local: true, method: :get do |f| %>
@@ -14,7 +15,7 @@
   </div>
 <% else %>
   <div class="search_form">
-    <%= form_with url: search_path, local: true, method: :get do |f| %>
+    <%= form_with url: admin_search_path, local: true, method: :get do |f| %>
       <div class="search-text">
         <%= f.text_field :word, class: "form-control" %>
       </div>

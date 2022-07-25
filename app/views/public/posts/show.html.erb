@@ -1,38 +1,7 @@
 <h2 class="show">投稿詳細</h3>
 <div class="container">
   <div class="row">
-    <div class="col-8">
-      <div class="card-show">
-        <%= image_tag @post.get_post_image, width: "100%", height: "100%" %>
-        <div class="card-date">
-          <strong>投稿日</strong>：<%= @post.created_at.strftime('%Y/%m/%d') %>
-          <div class="card-location">
-            <strong>撮影地</strong>：<%= @post.location %>
-          </div>
-        </div>
-        <div class="card-detail">
-          <strong>投稿者コメント</strong>：<%= @post.detail %>
-        </div>
-        <div class="card-tag">
-          <% @tag_posts.each do |tag| %>
-            <i class="fas fa-tag"></i>
-            <%= link_to tag.name, tag_posts_path(tag_id: tag.id) %>
-            <%= "(#{tag.posts.count})" %>
-          <% end %>
-        </div>
-        <div>
-          <% if member_signed_in? && current_member.id == @post.member_id %>
-          <div class="card-edit d-grid">
-            <%= link_to "編集する", edit_post_path(@post.id), class: "btn btn-success" %>
-          </div>
-          <div class="card-delete d-grid">
-            <%= link_to "削除", post_path(@post), method: :delete, data: {confirm: "本当に消しますか？"}, class: "btn btn-danger" %>
-          </div>
-          <% end %>
-          <%= link_to "トップ画面へ", root_path, class: "btn btn-secondary d-grid" %>
-        </div>
-      </div>
-    </div>
+    <%= render 'post_show', post: @post, tag_posts: @tag_posts %>
     <div class="col-4">
       <div class="comments">
         <%= render "public/comments/comment", post: @post, comment: @comment %>
