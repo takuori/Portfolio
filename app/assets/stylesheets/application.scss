@@ -254,10 +254,6 @@ p, span {
   margin-left: 20px;
 }
 
-.card-location-show {
-  margin-top: 5px;
-}
-
 .card-detail {
   margin: 5px 0;
 }
@@ -302,6 +298,16 @@ p, span {
 
 .notifications {
   text-align: center;
+}
+
+.n-circle {
+  color: #efa04c;
+  padding-left: 15px;
+  padding-bottom: 7px;
+}
+
+.fa-stack.fa-lg {
+  height: 50%;
 }
 
 .members-index {
