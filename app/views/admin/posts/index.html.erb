@@ -14,9 +14,7 @@
           <strong>投稿者コメント</strong>：<%= post.detail %><br>
           <div class="d-flex">
             <i class="fas fa-tag"></i>
-            <%= link_to tag_posts_path(tag_id: post.id) do %>
-              <%= post.tags.map(&:name).join(',') %>
-            <% end %>
+            <%= post.tags.map(&:name).join(',') %>
             <div class="comment">
               <i class="fas fa-comment-dots"></i>
               <%= link_to admin_post_path(post.id) do %>

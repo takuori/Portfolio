@@ -12,12 +12,11 @@
             <strong>撮影地</strong>：<%= post.location %>
           </div>
           <div class="card-detail">
-            <strong>投稿者の</strong>：<%= post.detail %>
+            <strong>投稿者のコメント</strong>：<%= post.detail %>
           </div>
           <div class="card-tag">
-            <%= link_to tag_posts_path(tag_id: tag.id) do %>
-              <%= post.tags.map(&:name).join(',') %>
-            <% end %>
+            <i class="fas fa-tag"></i>
+            <%= post.tags.map(&:name).join(',') %>
           </div>
           <div class="like-comment">
             <i class="fas fa-comment-dots"></i>
