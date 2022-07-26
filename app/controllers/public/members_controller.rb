@@ -2,7 +2,7 @@ class Public::MembersController < ApplicationController
   before_action :authenticate_member!
   def show
     @member = current_member
-    @posts = Post.where(member_id: current_member.id, status: 0).includes(:member).order("created_at DESC")
+    @posts = Post.where(member_id: current_member.id, status: 0).includes(:member).order("created_at DESC").page(params[:page]).per(6)
   end
 
   def edit
@@ -21,7 +21,7 @@ class Public::MembersController < ApplicationController
 
   def confirm
     @member = current_member
-    @posts = @member.posts.where(status: 1).order('created_at DESC')
+    @posts = @member.posts.where(status: 1).order('created_at DESC').page(params[:page]).per(6)
   end
 
   def withdraw

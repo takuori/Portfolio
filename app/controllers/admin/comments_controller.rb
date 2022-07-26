@@ -1,7 +1,7 @@
 class Admin::CommentsController < ApplicationController
 
   def comments
-    @comments = Comment.all
+    @comments = Comment.page(params[:page]).per(10)
   end
 
   def destroy

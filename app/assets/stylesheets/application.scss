@@ -196,9 +196,17 @@ p, span {
 }
 
 .card-index {
+  width: 100%;
+  float: left;
+  margin-right: 4px;
+  margin-bottom: 5px;
+}
+
+.card-index-public {
   width: 50%;
   float: left;
-  padding-right: 10px;
+  padding-right: 8px;
+  margin-bottom: 5px;
 }
 
 .taglist {
@@ -263,10 +271,6 @@ p, span {
 }
 
 .card-delete {
-  margin-bottom: 5px;
-}
-
-.card-index {
   margin-bottom: 5px;
 }
 
