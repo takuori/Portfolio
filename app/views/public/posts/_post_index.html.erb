@@ -12,9 +12,7 @@
     </div>
     <div class="card-tag">
       <i class="fas fa-tag"></i>
-      <%= link_to tag_posts_path(tag_id: post.id) do %>
-        <%= post.tags.map(&:name).join(',') %>
-      <% end %>
+      <%= post.tags.map(&:name).join(',') %>
     </div>
     <div class="likecomment">
       <div id="like_btn_<%= post.id %>">
