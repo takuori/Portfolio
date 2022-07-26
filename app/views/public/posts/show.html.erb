@@ -7,9 +7,9 @@
         <%= render "public/comments/comment", post: @post, comment: @comment %>
       </div>
       <div id="comment-area">
-        <%= render "public/comments/index", post: @post %>
-        <%= paginate @comments %>
+        <%= render "public/comments/index", post: @post, comments: @comments %>
       </div>
+      <%= paginate @comments %>
     </div>
   </div>
 </div>

@@ -2,14 +2,14 @@ class Admin::PostsController < ApplicationController
   before_action :authenticate_admin!
   def index
     @tag_list = Tag.all
-    @posts = Post.where(status: :released)
+    @posts = Post.where(status: :released).page(params[:page]).per(9)
     if params[:new]
-      @posts = Post.latest.page(params[:page]).per(20)
+      @posts = Post.latest.page(params[:page]).per(9)
     elsif params[:old]
-      @posts = Post.old.page(params[:page]).per(20)
+      @posts = Post.old.page(params[:page]).per(9)
     elsif params[:like]
       posts = Post.like_count
-      @posts = Kaminari.paginate_array(posts).page(params[:page]).per(20)
+      @posts = Kaminari.paginate_array(posts).page(params[:page]).per(9)
     end
   end
 
