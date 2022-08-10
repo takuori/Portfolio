@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_member!
+  before_action :correct_post, only: [:edit]
 
   def new
     @post = Post.new
@@ -90,6 +91,13 @@ class Public::PostsController < ApplicationController
       redirect_to posts_path, danger: '削除しました'
     else
       render :edit
+    end
+  end
+
+  def correct_post
+    @post = Post.find(params[:id])
+    unless @post.member.id == current_member.id
+      redirect_to posts_path
     end
   end
 
